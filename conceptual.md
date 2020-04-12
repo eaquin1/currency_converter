@@ -23,12 +23,14 @@ Python uses a class-based inheritance model, while JS uses prototypal inheritanc
 - Given a dictionary like ``{"a": 1, "b": 2}``: , list two ways you 
   can try to get a missing key (like "c") *without* your programming 
   crashing.
+  
   ```python
   for i in dict: if 'c' in i: print(i['c'])
   ```
+  
   ```python
   dictionary.get("c", 3)
-```
+	```
 - What is a unit test?
 
 A unit test is a module in Python that allows us to write code to check the functionality of our Python code. It uses classes and it is found in the Python standard library. Unit tests will test one "unit" of functionality (such as one function or method), in isolated, small pieces. It also allows us to see if our source code could be broken down by avoiding intermixed concerns.
@@ -61,6 +63,7 @@ Web applications can:
   A URL parameter is predominately for the "subject of a page", while a query param (also called a query string) is extra information about the page, and often used when coming from a form. An example could be 'comments?sort=top'.
 
 - How do you collect data from a URL placeholder parameter using Flask?
+
 ```python
 USERS = {
 	"George": "cat",
@@ -75,7 +78,7 @@ def show_user_profile(username):
 - How do you collect data from the query string using Flask?
 if the url is: /search?term=blankets
 ```python
-@app.route('/search'):
+@app.route('/search')
 def search():
 	term = request.args["term"]
 	return f"<h1>Search for {term}</h1>"
