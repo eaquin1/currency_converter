@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Converted Amount</h1>
+    <p>The result is {{symbol}}{{converted_amount}} {{to_currency}}</p>
+    <a href="/"><button class="btn btn-primary">Home</button></a>
+</div>
+{% endblock %}
