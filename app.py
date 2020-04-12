@@ -26,16 +26,20 @@ def check_currency_codes():
     to_currency = request.form["to_currency"].upper()
     amount = request.form["amount"]
     
+    session['from_currency'] = from_currency
+    session['to_currency'] = to_currency
+    session['amount'] = amount
+    
     from_currency_valid = currency_codes.check_code(from_currency)
     to_currency_valid = currency_codes.check_code(to_currency)
     
     if from_currency_valid == False or to_currency_valid == False:
         flash('Please enter a valid currency code', 'danger')
         return redirect('/')
-
-    session['from_currency'] = from_currency
-    session['to_currency'] = to_currency
-    session['amount'] = amount
+    
+    if not amount.isdigit():
+        flash('Please enter a valid number in the amount form', 'danger')
+        return redirect('/')
 
     return redirect('/result')
 
